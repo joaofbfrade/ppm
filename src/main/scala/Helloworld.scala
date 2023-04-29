@@ -12,7 +12,7 @@ object Helloworld extends App {
   def menor(x:Int,y:Int) = if (x > y) y else x
 
   def maiorde3(x:Int, y:Int, z:Int) = (maior((maior(x,y)), z))
-  def middle (x:Int, y:Int, z:Int) : Int = ()
+
 
   def middle3(x: Int, y: Int, z: Int) = (menor((maior(x, y)),
     maior(menor(x, y), z)))
