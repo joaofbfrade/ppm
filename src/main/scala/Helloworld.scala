@@ -71,6 +71,6 @@ object Helloworld extends App {
 
   print( ex3d (List(1.3,2.2,3.1) ))
 
-
+//nice
 
 }
