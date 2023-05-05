@@ -57,17 +57,14 @@ def ex1c (lst:List[Int],x:Int):List[Int]= {
     }
   }
 
-  def ex1fa (lst:List[Int]):(Int,Int)=
+  def ex1fa (lst:List[Double]):(Double,Double)=
     {
       lst match {
 
         case Nil=>(0,0)
         case x::s => {
-          val y = y+1
-
-           x+ex1fa(s)
-
-
+          val  z = ex1fa(s)
+          (z._1 + 1, x + z._2)
         }
 
       }
@@ -76,7 +73,42 @@ def ex1c (lst:List[Int],x:Int):List[Int]= {
 
     }
 
+    def ex2fb (lst:List[Double]):Double = {
+
+      val (count, sum) = ex1fa(lst)
+      sum / count
+    }
 
 
-  println(  ex1fa(  List(1,2,3,4)))
+
+    def ex2g (lst:List[Double],e:Double):(List[Double],List[Double])= {
+
+      lst match {
+
+        case Nil => (Nil,Nil)
+        case h::t => {
+
+          if (lst.indexOf(h)< e) {
+
+            (h :: ex2g(t,e),ex2g(t,e))
+
+          } else
+
+
+
+        }
+
+
+      }
+    }
+
+
+
+
+
+
+
+
+
+  println(  ex2fb(  List(1,2)))
 }
