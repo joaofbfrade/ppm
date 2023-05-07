@@ -81,34 +81,29 @@ def ex1c (lst:List[Int],x:Int):List[Int]= {
 
 
 
-    def ex2g (lst:List[Double],e:Double):(List[Double],List[Double])= {
-
-      lst match {
-
-        case Nil => (Nil,Nil)
-        case h::t => {
-
-          if (lst.indexOf(h)< e) {
-
-            (h :: ex2g(t,e),ex2g(t,e))
-
-          } else
-
-
-
-        }
-
-
+    def ex2g (l: List[Double], e: Double): (List[Double],
+    List[Double])
+  =
+  {
+    l match {
+      case Nil => (Nil, Nil)
+      case h :: t => {
+        if (h < e)
+          (h :: ex2g(t, e)._1, ex2g(t, e)._2)
+        else
+          (ex2g(t, e)._1, h :: ex2g(t, e)._2)
       }
     }
+  }
 
 
+  def ex2h (l: List[Double]): List[Double]  = {
+    val av = ex2fb(l)
+    val res = ex2g(l, av)
+
+    res._2
+  }
 
 
-
-
-
-
-
-  println(  ex2fb(  List(1,2)))
+    println(  ex2g(  List(1,2,4,5,6,8),3 ))
 }
